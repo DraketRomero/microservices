@@ -80,5 +80,6 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>mircoservices-technical-test-docker</finalName>
 	</build>
 </project>
