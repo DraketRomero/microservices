@@ -19,7 +19,7 @@ import java.util.List;
 class PruebatecnicaApplicationTests {
 
     @Autowired
-    private BookStoreOrchestrator bookStoreOrchestrator;
+    public BookStoreOrchestrator bookStoreOrchestrator;
 
     Book book = new Book();
     Author author = new Author();
