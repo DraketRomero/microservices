@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthorServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pruebatecnica</a> &gt; <a href="index.source.html" class="el_package">com.pruebatecnica.pruebatecnica.service.impl</a> &gt; <span class="el_source">AuthorServiceImpl.java</span></div><h1>AuthorServiceImpl.java</h1><pre class="source lang-java linenums">package com.pruebatecnica.pruebatecnica.service.impl;
+
+import com.pruebatecnica.pruebatecnica.controllers.dto.AuthorDTO;
+import com.pruebatecnica.pruebatecnica.entities.Author;
+import com.pruebatecnica.pruebatecnica.persistence.IAuthorDAO;
+import com.pruebatecnica.pruebatecnica.service.IAuthorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+<span class="fc" id="L11">public class AuthorServiceImpl implements IAuthorService {</span>
+
+    @Autowired
+    private IAuthorDAO iAuthorDAO;
+
+    public void save(AuthorDTO authorDTO) {
+<span class="pc bpc" id="L17" title="5 of 6 branches missed.">        if (!authorDTO.getName().isBlank() || authorDTO.getLastname() != null || authorDTO.getSecondLastname() != null) {</span>
+<span class="fc" id="L18">            iAuthorDAO.save(</span>
+<span class="fc" id="L19">                    Author.builder()</span>
+<span class="fc" id="L20">                            .name(authorDTO.getName())</span>
+<span class="fc" id="L21">                            .lastname(authorDTO.getLastname())</span>
+<span class="fc" id="L22">                            .secondLastname(authorDTO.getSecondLastname())</span>
+<span class="fc" id="L23">                            .build());</span>
+        }
+<span class="fc" id="L25">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookStoreOrchestrator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pruebatecnica</a> &gt; <a href="index.source.html" class="el_package">com.pruebatecnica.pruebatecnica.orchestrator</a> &gt; <span class="el_source">BookStoreOrchestrator.java</span></div><h1>BookStoreOrchestrator.java</h1><pre class="source lang-java linenums">package com.pruebatecnica.pruebatecnica.orchestrator;
+
+import com.pruebatecnica.pruebatecnica.controllers.dto.AuthorDTO;
+import com.pruebatecnica.pruebatecnica.controllers.dto.BookDTO;
+import com.pruebatecnica.pruebatecnica.service.IAuthorService;
+import com.pruebatecnica.pruebatecnica.service.IBookService;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+
+@Service
+public class BookStoreOrchestrator {
+    private final IBookService iBookService;
+    private final IAuthorService iAuthorService;
+
+    @Autowired
+<span class="fc" id="L20">    public BookStoreOrchestrator(IBookService iBookService, IAuthorService iAuthorService) {</span>
+<span class="fc" id="L21">        this.iBookService = iBookService;</span>
+<span class="fc" id="L22">        this.iAuthorService = iAuthorService;</span>
+<span class="fc" id="L23">    }</span>
+
+    @Transactional
+    public ResponseEntity&lt;?&gt; saveBook(BookDTO bookDTO) {
+        try {
+<span class="nc" id="L28">            iBookService.save(bookDTO);</span>
+<span class="nc" id="L29">            return ResponseEntity.status(HttpStatus.OK).body(&quot;Libro guardado correctamente.&quot;);</span>
+<span class="nc" id="L30">        }catch (HttpClientErrorException e) {</span>
+<span class="nc" id="L31">            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(&quot;Error al crear libro. &quot; + e.getMessage());</span>
+<span class="nc" id="L32">        } catch (Exception e) {</span>
+<span class="nc" id="L33">            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(&quot;Error inesperado en el servidor.&quot; + e.getMessage());</span>
+        }
+    }
+
+    @Transactional
+    public ResponseEntity&lt;?&gt; saveAuthor(AuthorDTO authorDTO){
+        try {
+<span class="fc" id="L40">            iAuthorService.save(authorDTO);</span>
+<span class="fc" id="L41">            return ResponseEntity.status(HttpStatus.OK).body(&quot;Autor guardado correctamente.&quot;);</span>
+<span class="nc" id="L42">        }catch (HttpClientErrorException e) {</span>
+<span class="nc" id="L43">            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(&quot;Error al crear autor. &quot; + e.getMessage());</span>
+<span class="nc" id="L44">        } catch (Exception e) {</span>
+<span class="nc" id="L45">            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(&quot;Error inesperado en el servidor.&quot; + e.getMessage());</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

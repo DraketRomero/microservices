@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.pruebatecnica.pruebatecnica.PruebatecnicaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.33 s <<< FAILURE! -- in com.pruebatecnica.pruebatecnica.PruebatecnicaApplicationTests
-com.pruebatecnica.pruebatecnica.PruebatecnicaApplicationTests.testSaveBook -- Time elapsed: 0.869 s <<< ERROR!
-org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804)
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:676)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:426)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
-	at com.pruebatecnica.pruebatecnica.orchestrator.BookStoreOrchestrator$$SpringCGLIB$$0.saveBook(<generated>)
-	at com.pruebatecnica.pruebatecnica.PruebatecnicaApplicationTests.testSaveBook(PruebatecnicaApplicationTests.java:53)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.85 s -- in com.pruebatecnica.pruebatecnica.PruebatecnicaApplicationTests
