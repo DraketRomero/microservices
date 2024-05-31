@@ -23,7 +23,7 @@ public class BookStoreOrchestrator {
     }
 
     @Transactional
-    public ResponseEntity<String> saveBook(BookDTO bookDTO) {
+    public ResponseEntity<?> saveBook(BookDTO bookDTO) {
         try {
             iBookService.save(bookDTO);
             return ResponseEntity.status(HttpStatus.OK).body("Libro guardado correctamente.");
